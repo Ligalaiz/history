@@ -1,0 +1,8 @@
+.vscode
+build/*.js
+*.config.js
+dist
+src/assets/animations
+coverage
+.history
+storybook-static
