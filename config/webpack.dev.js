@@ -37,7 +37,7 @@ module.exports = merge(commonConfig, {
     static: join(paths.root, 'dist'),
     hot: true,
     open: '/',
-    port: 3000,
+    port: 4000,
     historyApiFallback: true,
     // devMiddleware: {
     //   writeToDisk: true,
