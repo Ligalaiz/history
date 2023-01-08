@@ -1,0 +1,98 @@
+@use '../../../assets/styles/internals/index';
+
+.header {
+  margin-bottom: 2.6rem;
+
+  @include fontz(2rem, 1.2, $grey-425);
+  font-weight: 700;
+}
+
+.dates {
+  margin-bottom: 5.8rem;
+
+  @include fontz(5.6rem, 1.321, $grey-425);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+
+  &__from {
+    color: $blue-387;
+  }
+
+  &__from {
+    color: $pink-ef5;
+  }
+}
+
+.chart {
+  display: none;
+}
+
+.slider {
+  padding: 2rem;
+  border: 0.1rem solid $grey-c7c;
+  margin-bottom: 5.8rem;
+
+  &__date {
+    @include fontz(1.6rem, 1.187, $blue-387);
+    font-family: 'Bebas Neue';
+    text-transform: uppercase;
+  }
+
+  &__item {
+    opacity: 0.4;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}
+
+.navigate {
+  &__count {
+    margin-bottom: 1rem;
+
+    line-height: 1.285;
+  }
+}
+
+.btns-navigate {
+  &__prev,
+  &__next {
+    position: relative;
+
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 0.1rem solid $grey-c7c;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      width: 0.5rem;
+      height: 0.5rem;
+      border: 0.2rem solid $grey-425;
+    }
+  }
+}
+
+.nav-points {
+  display: flex;
+  justify-content: space-between;
+  max-width: 8.6rem;
+
+  &__item {
+    width: 0.6rem;
+    height: 0.6rem;
+
+    background-color: $grey-425;
+    opacity: 0.4;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}
