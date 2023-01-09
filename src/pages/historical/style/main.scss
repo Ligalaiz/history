@@ -1,14 +1,25 @@
 @use '../../../assets/styles/internals/index';
 
-.header {
-  margin-bottom: 2.6rem;
+.circle {
+  display: flex;
+  flex-direction: column;
+}
 
-  @include fontz(2rem, 1.2, $grey-425);
-  font-weight: 700;
+.header {
+  padding-top: 5.8rem;
+  margin-bottom: 5.7rem;
+
+  &__title {
+    @include fontz(2rem, 1.2, $grey-425);
+    font-weight: 700;
+  }
 }
 
 .dates {
-  margin-bottom: 5.8rem;
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 2.6rem;
+  margin-bottom: 5.5rem;
 
   @include fontz(5.6rem, 1.321, $grey-425);
   letter-spacing: -0.02em;
@@ -18,7 +29,7 @@
     color: $blue-387;
   }
 
-  &__from {
+  &__to {
     color: $pink-ef5;
   }
 }
@@ -28,34 +39,58 @@
 }
 
 .slider {
-  padding: 2rem;
-  border: 0.1rem solid $grey-c7c;
-  margin-bottom: 5.8rem;
+  padding-top: 2rem;
+  border-top: 0.1rem solid $grey-c7c;
+  margin-bottom: 3.8rem;
 
   &__date {
+    margin-bottom: 1.6rem;
+
     @include fontz(1.6rem, 1.187, $blue-387);
     font-family: 'Bebas Neue';
     text-transform: uppercase;
   }
 
-  &__item {
-    opacity: 0.4;
+  &__wrap {
+    width: 100%;
+    overflow: hidden;
+  }
 
-    &.active {
-      opacity: 1;
-    }
+  &__list {
+    display: flex;
+    column-gap: 2.5rem;
+
+    min-width: 137em;
+  }
+
+  &__item {
+    width: 16.6rem;
   }
 }
 
 .navigate {
+  margin-bottom: 1.3rem;
+
+  order: 1;
+
+  &__wrap {
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 3.7rem;
+  }
+
   &__count {
-    margin-bottom: 1rem;
+    margin-bottom: 0.6rem;
 
     line-height: 1.285;
   }
 }
 
 .btns-navigate {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 1rem;
+
   &__prev,
   &__next {
     position: relative;
@@ -64,18 +99,35 @@
     height: 2.5rem;
     border-radius: 50%;
     border: 0.1rem solid $grey-c7c;
+    opacity: 0.4;
 
     &:before {
       content: '';
       position: absolute;
       top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
 
       width: 0.5rem;
       height: 0.5rem;
       border: 0.2rem solid $grey-425;
+      border-top: none;
+      border-right: none;
     }
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  &__prev:before {
+    left: 54%;
+
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &__next:before {
+    left: 50%;
+
+    transform: translate(-50%, -50%) rotate(230deg);
   }
 }
 
@@ -83,10 +135,12 @@
   display: flex;
   justify-content: space-between;
   max-width: 8.6rem;
+  column-gap: 1rem;
 
   &__item {
     width: 0.6rem;
     height: 0.6rem;
+    border-radius: 50%;
 
     background-color: $grey-425;
     opacity: 0.4;
