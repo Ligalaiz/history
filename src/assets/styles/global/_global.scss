@@ -57,6 +57,10 @@ p {
   max-width: 144rem;
   margin: 0 auto;
   padding: 0 2rem;
+
+  @media (min-width: 1440px) {
+    padding: 0 2rem 0 7.9rem;
+  }
 }
 
 input:focus {

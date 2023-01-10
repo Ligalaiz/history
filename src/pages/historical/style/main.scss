@@ -6,12 +6,33 @@
 }
 
 .header {
-  padding-top: 5.8rem;
-  margin-bottom: 5.7rem;
+  margin: 5.8rem 0 5.7rem;
+
+  @media (min-width: 1440px) {
+    position: relative;
+
+    margin: 17rem 0 7.8rem;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0.7rem;
+      left: -8.1rem;
+
+      width: 0.6rem;
+      height: calc(100% - 1.4rem);
+
+      background: linear-gradient(180deg, $blue-387, $pink-ef5);
+    }
+  }
 
   &__title {
     @include fontz(2rem, 1.2, $grey-425);
     font-weight: 700;
+
+    @media (min-width: 1440px) {
+      @include fontz(5.6rem, 1.196, $grey-425);
+    }
   }
 }
 
@@ -22,8 +43,19 @@
   margin-bottom: 5.5rem;
 
   @include fontz(5.6rem, 1.321, $grey-425);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.02rem;
   font-weight: 700;
+
+  @media (min-width: 1440px) {
+    justify-content: space-between;
+    max-width: 103.2rem;
+    width: 100%;
+    padding-right: 5.9rem;
+    margin: 0 auto 11.6rem;
+
+    @include fontz(20rem, 1, $grey-425);
+    letter-spacing: -0.3rem;
+  }
 
   &__from {
     color: $blue-387;
@@ -39,9 +71,62 @@
 }
 
 .slider {
+  position: relative;
+
   padding-top: 2rem;
   border-top: 0.1rem solid $grey-c7c;
   margin-bottom: 3.8rem;
+
+  @media (min-width: 1440px) {
+    &__prev,
+    &__next {
+      position: absolute;
+      top: 33%;
+
+      display: none;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+
+      box-shadow: 0px 0px 15px rgba(56, 119, 238, 0.1);
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+
+        width: 0.8rem;
+        height: 0.8rem;
+        border: 0.2rem solid $blue-387;
+        border-top: none;
+        border-right: none;
+      }
+
+      &.active {
+        display: block;
+      }
+    }
+
+    &__prev {
+      left: -8.2rem;
+
+      &:before {
+        left: 54%;
+
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+    }
+
+    &__next {
+      right: 2rem;
+
+      &:before {
+        right: 34%;
+
+        transform: translate(-50%, -50%) rotate(230deg);
+      }
+    }
+  }
 
   &__date {
     margin-bottom: 1.6rem;
@@ -49,22 +134,55 @@
     @include fontz(1.6rem, 1.187, $blue-387);
     font-family: 'Bebas Neue';
     text-transform: uppercase;
+
+    @media (min-width: 1440px) {
+      margin-bottom: 1.5rem;
+
+      @include fontz(2.5rem, 1.2, $blue-387);
+    }
   }
 
   &__wrap {
     width: 100%;
     overflow: hidden;
+
+    @media (min-width: 1440px) {
+      max-width: 125rem;
+    }
   }
 
   &__list {
     display: flex;
     column-gap: 2.5rem;
 
-    min-width: 137em;
+    min-width: 137rem;
+
+    @media (min-width: 1440px) {
+      min-width: 252rem;
+      column-gap: 12rem;
+    }
   }
 
   &__item {
     width: 16.6rem;
+
+    @media (min-width: 1440px) {
+      width: 32rem;
+    }
+  }
+
+  &__text {
+    @media (min-width: 1440px) {
+      @include fontz(2rem, 1.5, $grey-425);
+    }
+  }
+
+  &__btns {
+    display: none;
+
+    @media (min-width: 1440px) {
+      display: block;
+    }
   }
 }
 
@@ -72,6 +190,12 @@
   margin-bottom: 1.3rem;
 
   order: 1;
+
+  @media (min-width: 1440px) {
+    margin-bottom: 3.3rem;
+
+    order: unset;
+  }
 
   &__wrap {
     display: flex;
@@ -83,6 +207,10 @@
     margin-bottom: 0.6rem;
 
     line-height: 1.285;
+
+    @media (min-width: 1440px) {
+      margin-bottom: 2rem;
+    }
   }
 }
 
@@ -90,6 +218,10 @@
   display: flex;
   justify-content: space-between;
   column-gap: 1rem;
+
+  @media (min-width: 1440px) {
+    column-gap: 2rem;
+  }
 
   &__prev,
   &__next {
@@ -101,6 +233,11 @@
     border: 0.1rem solid $grey-c7c;
     opacity: 0.4;
 
+    @media (min-width: 1440px) {
+      width: 5rem;
+      height: 5rem;
+    }
+
     &:before {
       content: '';
       position: absolute;
@@ -111,6 +248,11 @@
       border: 0.2rem solid $grey-425;
       border-top: none;
       border-right: none;
+
+      @media (min-width: 1440px) {
+        width: 1rem;
+        height: 1rem;
+      }
     }
 
     &.active {
@@ -136,6 +278,10 @@
   justify-content: space-between;
   max-width: 8.6rem;
   column-gap: 1rem;
+
+  @media (min-width: 1440px) {
+    display: none;
+  }
 
   &__item {
     width: 0.6rem;
