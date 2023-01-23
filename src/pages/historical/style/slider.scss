@@ -88,10 +88,11 @@
     overflow: hidden;
 
     @media (min-width: 1440px) {
-      max-width: 125rem;
-
-      width: 32rem;
-      height: 16.5rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      transform: translate(-50%, -50%);
     }
   }
 
@@ -99,24 +100,26 @@
     display: flex;
     column-gap: 2.5rem;
 
+    overflow: hidden;
+
     @media (min-width: 1440px) {
       column-gap: 12rem;
+
+      position: relative;
     }
   }
 
   &__item {
     position: relative;
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-
+    margin: 0 auto;
     display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 
     animation: 1.4s linear;
-    background-color: red;
 
     @media (min-width: 1440px) {
-      width: 32rem;
       height: 16.5rem;
     }
 
@@ -141,7 +144,11 @@
 }
 
 .next {
+  position: absolute;
+
   display: flex;
+  top: 0;
+  width: 100%;
 }
 
 .from-left {
@@ -151,11 +158,11 @@
 
 .to-right {
   animation-name: right;
+  animation-direction: reverse;
 }
 
 .from-right {
   animation-name: right;
-  animation-direction: reverse;
 }
 
 .to-left {
@@ -174,10 +181,10 @@
 
 @keyframes right {
   from {
-    right: 100%;
+    left: 100%;
   }
 
   to {
-    right: 0;
+    left: 0;
   }
 }
