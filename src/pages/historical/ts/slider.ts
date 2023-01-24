@@ -1,4 +1,4 @@
-const slides: NodeListOf<Element> = document.querySelectorAll('.slider__item');
+const slides: NodeListOf<HTMLElement> = document.querySelectorAll('.slider__item');
 const sliderPrevBtn: HTMLElement | null = document.getElementById('sliderPrevBtn');
 const sliderNextBtn: HTMLElement | null = document.getElementById('sliderNextBtn');
 
@@ -24,7 +24,6 @@ function hideItem(direction: 'to-left' | 'to-right'): void {
 }
 
 function showItem(direction: 'from-left' | 'from-right'): void {
-  console.log(direction)
   slides[currentSlideIndex]?.classList.add(direction, 'next');
 
   slides[currentSlideIndex]?.addEventListener('animationend', (e) => {

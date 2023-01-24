@@ -31,7 +31,7 @@
         content: '';
         position: absolute;
 
-        top: 46%;
+        top: 50%;
         left: 0;
         right: 0;
 
@@ -82,6 +82,9 @@
 }
 
 .dates {
+  position: relative;
+  z-index: 10;
+
   display: flex;
   justify-content: flex-start;
   column-gap: 2.6rem;
@@ -119,7 +122,7 @@
 
     &__list {
       position: absolute;
-      top: 46.4%;
+      top: 50%;
       left: 50%;
 
       width: 53rem;
@@ -128,6 +131,8 @@
       border: 0.1rem solid $grey-425-02;
 
       transform: translate(-50%, -50%);
+      transition: all 0.5s;
+      z-index: 10;
     }
 
     &__item {
@@ -141,35 +146,86 @@
 
       background-color: $grey-425;
 
+      transition: all 0.2s;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+
+      &:before {
+        content: '';
+        position: absolute;
+
+        width: 5.6rem;
+        height: 5.6rem;
+        transform: translate(-50%, -50%);
+
+        cursor: pointer;
+      }
+
       &--one {
-        top: 5.3%;
+        top: 6.3%;
         left: 24.8%;
+
+        &.active,
+        &:hover {
+          top: 3.7rem;
+          left: 25%;
+        }
       }
 
       &--two {
-        top: 49%;
+        top: 50%;
         left: -0.7%;
+
+        &.active,
+        &:hover {
+          top: 50%;
+          left: 0%;
+        }
       }
 
       &--three {
-        top: 91.4%;
-        left: 22.5%;
+        top: 93%;
+        left: 25%;
+
+        &.active,
+        &:hover {
+          top: 93%;
+        }
       }
 
       &--four {
-        top: 92%;
-        right: 24%;
+        top: 93%;
+        left: 75%;
+
+        &.active,
+        &:hover {
+          top: 93%;
+        }
       }
 
       &--five {
-        top: 49%;
+        top: 50%;
         right: -0.7%;
+
+        &.active,
+        &:hover {
+          top: 50%;
+          left: 100%;
+        }
       }
 
-      &.active {
-        top: 0;
-        left: 65%;
+      &--six {
+        top: 6.3%;
+        left: 75%;
 
+        &.active,
+        &:hover {
+          top: 3.7rem;
+        }
+      }
+
+      &.active,
+      &:hover {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -180,7 +236,22 @@
         font-size: 2rem;
 
         background-color: $grey-f4f;
+        cursor: pointer;
       }
+    }
+
+    &__item-text {
+      display: none;
+    }
+
+    &__item.active &__item-text {
+      position: absolute;
+      right: -7rem;
+
+      display: block;
+
+      @include fontz(2rem, 1.5, $grey-425);
+      font-weight: 700;
     }
   }
 }
